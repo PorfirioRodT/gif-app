@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { getGifs } from '../helpers/getGifs';
 
-export const AddCategory = () => {
+export const AddCategory = ({ onNewCategory }) => {
 
-    const [inputValue, setInputValue] = useState('One Punch');    
+    const [inputValue, setInputValue] = useState('');    
 
     const onInputChange = ({target}) => {
         //console.log(event.target.value);
@@ -11,17 +12,24 @@ export const AddCategory = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(inputValue);
+
+        const trimmedInput = inputValue.trim();
+        
+        if(trimmedInput.length <= 1) return;
+
+        //setCategories(categories => [inputValue, ...categories]);
+        setInputValue('');
+        onNewCategory(trimmedInput);
     }
 
     return (
-        <form onSubmit={(event) => onSubmit(event)}>
+        <form onSubmit={ onSubmit }>
 
             <input 
-            type="text"
-            placeholder="Buscar Gifs"
-            value={ inputValue }
-            onChange= { onInputChange }
+                type="text"
+                placeholder="Buscar Gifs"
+                value={ inputValue }
+                onChange= { onInputChange }
             />
 
         </form>
