@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests in <GifGridItem /> Should match with the snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Apex"
+      src="https://apexlegends.com/wraithcalva.jpg"
+    />
+    <p>
+      Apex
+    </p>
+  </div>
+</div>
+`;
